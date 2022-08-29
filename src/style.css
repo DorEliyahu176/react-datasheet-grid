@@ -17,6 +17,20 @@
   --dsg-scroll-shadow-color: rgba(0, 0, 0, 0.2);
 }
 
+.dsg-resizer {
+  height: max-content;
+  width: 10px;
+  z-index: 999;
+  justify-content: flex-end;
+  cursor: col-resize;
+}
+
+.dsg-resizer:hover {
+  background-color: #3C968F;
+  border-color: #3C968F;
+  /* cursor: col-resize; */
+}
+
 .dsg-container {
   border: solid 1px var(--dsg-border-color);
   border-top: none;

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
-import { Column } from '../types'
+import { Column, gutterColumnWidth } from '../types'
 
 export const Cell: FC<{
   gutter: boolean
@@ -31,6 +31,7 @@ export const Cell: FC<{
       )}
       style={{
         flex: String(column.width),
+        // minWidth: gutter ? gutterColumnWidth : column.minWidth,
         minWidth: column.minWidth,
         maxWidth: column.maxWidth,
       }}

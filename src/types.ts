@@ -72,6 +72,7 @@ export type ListItemData<T> = {
 
 export type HeaderContextType<T> = {
   columns: Column<T, any, string>[]
+  setColumnsWidth?: any
   contentWidth?: number
   hasStickyRightColumn: boolean
   height: number
@@ -205,3 +206,5 @@ export type DataSheetGridRef = {
   setActiveCell: (activeCell: CellWithIdInput | null) => void
   setSelection: (selection: SelectionWithIdInput | null) => void
 }
+
+export const gutterColumnWidth = 50;

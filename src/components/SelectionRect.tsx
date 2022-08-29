@@ -1,5 +1,6 @@
 import React, { useContext, useMemo } from 'react'
 import { SelectionContext } from '../contexts/SelectionContext'
+import { gutterColumnWidth } from '../types'
 import cx from 'classnames'
 
 const buildSquare = (
@@ -91,6 +92,7 @@ export const SelectionRect = React.memo(() => {
   const activeCellRect = activeCell && {
     width: columnWidths[activeCell.col + 1] + extraPixelH(activeCell.col),
     height: rowHeight + extraPixelV(activeCell.row),
+    // left: columnRights[activeCell.col] + gutterColumnWidth,
     left: columnRights[activeCell.col],
     top: rowHeight * activeCell.row + headerRowHeight,
   }
@@ -103,6 +105,7 @@ export const SelectionRect = React.memo(() => {
     height:
       rowHeight * (selection.max.row - selection.min.row + 1) +
       extraPixelV(selection.max.row),
+    // left: columnRights[selection.min.col] + gutterColumnWidth,
     left: columnRights[selection.min.col],
     top: rowHeight * selection.min.row + headerRowHeight,
   }
@@ -228,6 +231,7 @@ export const SelectionRect = React.memo(() => {
             ...selectionRect,
             clipPath: buildClipPath(
               activeCellRect.top - selectionRect.top,
+              // activeCellRect.left - selectionRect.left + gutterColumnWidth,
               activeCellRect.left - selectionRect.left,
               activeCellRect.top + activeCellRect.height - selectionRect.top,
               activeCellRect.left + activeCellRect.width - selectionRect.left
